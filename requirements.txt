@@ -1,0 +1,6 @@
+numpy
+django
+djangorestframework
+requests
+opencv-python
+mediapipe
