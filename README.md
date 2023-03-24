@@ -1,5 +1,8 @@
 # Face Detection Web Service
-![](gfx/sample.png)
+<p align="center">
+    <img src="gfx/sample.png">
+</p>
+
 ## Setting Up
 1. Clone the repository:
 ```
@@ -43,7 +46,10 @@ python test_api.py --img_url https://img.freepik.com/free-photo/medium-shot-smil
 ```
 **Result:**
 
-![](gfx/example.png)
+<p align="center">
+    <img src="gfx/example.png">
+</p>
+
 ## Final Notes
 In order to obtain bounding boxes for faces, *MediaPipe* was used under the hood, because of its lightweight and very accurate predictions when it comes to face detection. 
 The **frame per second** of this model is 200-1000 depending on the specification of the devices.
