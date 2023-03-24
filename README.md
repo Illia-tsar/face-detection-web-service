@@ -1,8 +1,6 @@
 # Face Detection Web Service
-___
 ![](gfx/sample.png)
 ## Setting Up
-___
 1. Clone the repository:
 ```
 git clone https://github.com/Illia-tsar/face-detection-web-service.git
@@ -18,7 +16,6 @@ conda activate <env_name>
 pip install -r requirements.txt
 ```
 ## Basic Usage
-___
 To begin with, run the server:
 ```
 cd fd_api/
@@ -30,7 +27,6 @@ curl -X POST 'http://localhost:8000/model/' -d 'url=<some-image-url>' ; echo ""
 ```
 The response contains **status** and **detections** fields. The API returns the absolute coordinates of human faces.
 ## Test API
-___
 In order to visualize the predictions, the *test_api.py* script can be used. First you need to run the server, as explained in the previous section.
 Next, you can run the *test_api.py* script with the following command:
 ```
@@ -49,6 +45,5 @@ python test_api.py --img_url https://img.freepik.com/free-photo/medium-shot-smil
 
 ![](gfx/example.png)
 ## Final Notes
-___
 In order to obtain bounding boxes for faces, *MediaPipe* was used under the hood, because of its lightweight and very accurate predictions when it comes to face detection. 
 The **frame per second** of this model is 200-1000 depending on the specification of the devices.
