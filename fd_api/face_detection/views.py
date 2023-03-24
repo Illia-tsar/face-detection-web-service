@@ -34,3 +34,11 @@ def detect(request):
         })
 
     return JsonResponse(data)
+
+
+def load_image(url):
+    resp = urllib.request.urlopen(url)
+    data = resp.read()
+    image = np.asarray(bytearray(data), dtype="uint8")
+    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    return image
