@@ -19,14 +19,16 @@ def detect(request):
 
         image = load_image(url)
         image = image[:, :, ::-1]
+        img_h, img_w = image.shape[:-1]
 
         face_detection_results = FaceDetectionConfig.predictor.process(image)
 
         rects = []
         for face in face_detection_results.detections:
             face_data = face.location_data.relative_bounding_box
-            x, y, w, h, = face_data.xmin, face_data.ymin, face_data.width, face_data.height
-            rects.append((x, y, w, h))
+            rel_x, rel_y, rel_w, rel_h, = face_data.xmin, face_data.ymin, face_data.width, face_data.height
+            abs_x, abs_y, abs_w, abs_h = int(rel_x * img_w), int(rel_y * img_h), int(rel_w * img_w), int(rel_h * img_h)
+            rects.append((abs_x, abs_y, abs_w, abs_h))
 
         data.update({
             "detections": rects,
